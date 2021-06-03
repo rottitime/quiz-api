@@ -1,0 +1,6 @@
+#path to nodejs version installed
+PassengerNodejs /home/jaspaulcom/.nvm/versions/node/v12.19.0/bin/node
+
+#error reporting
+PassengerFriendlyErrorPages on
+
