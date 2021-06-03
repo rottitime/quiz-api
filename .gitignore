@@ -4,3 +4,9 @@
 # npm
 node_modules
 package-lock.json
+
+#server
+.env
+dist/
+public/
+tmp/
