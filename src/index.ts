@@ -1,22 +1,21 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server'
-import { buildSchema, Query, Resolver } from 'type-graphql'
+import { buildSchema } from 'type-graphql'
+import { createConnection } from 'typeorm'
+import { RegisterResolver } from './modules/user/Register'
 require('dotenv').config()
-
-@Resolver()
-class HelloResolver {
-  @Query(() => String)
-  async hello() {
-    return `Hello world: ${process.env.NODE_ENV}`
-  }
-}
 
 const PORT = process.env.PORT || 4000
 
 async function bootstrap() {
+  try {
+    await createConnection()
+  } catch (err) {
+    console.error(err)
+  }
+
   const schema = await buildSchema({
-    // resolvers: [__dirname + '/modules/**/*.resolver.{ts,js}', __dirname + '/resolvers/**/*.{ts,js}']
-    resolvers: [HelloResolver]
+    resolvers: [RegisterResolver]
   })
 
   // Create the GraphQL server
