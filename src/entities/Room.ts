@@ -15,4 +15,8 @@ export class Room extends BaseEntity {
   @Field()
   @Column()
   host: string
+
+  @Field()
+  @Column('bool', { default: false })
+  completed: boolean
 }
