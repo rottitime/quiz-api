@@ -1,5 +1,12 @@
 import { Field, ID, ObjectType } from 'type-graphql'
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm'
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  CreateDateColumn,
+  UpdateDateColumn
+} from 'typeorm'
 
 @ObjectType()
 @Entity()
@@ -19,4 +26,10 @@ export class Room extends BaseEntity {
   @Field()
   @Column('bool', { default: false })
   completed: boolean
+
+  @CreateDateColumn()
+  createdDate?: Date
+
+  @UpdateDateColumn()
+  updatedDate?: Date
 }
