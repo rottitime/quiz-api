@@ -4,8 +4,10 @@ import Express from 'express'
 import { buildSchema } from 'type-graphql'
 import { createConnection } from 'typeorm'
 import { RegisterResolver } from './modules/user/Register'
+import dotenv from 'dotenv'
 import cors from 'cors'
-require('dotenv').config()
+
+dotenv.config()
 
 const port = process.env.PORT || 4000
 
